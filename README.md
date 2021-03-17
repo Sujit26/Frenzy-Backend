@@ -1,7 +1,7 @@
 # Frenzy-Backend
 
 OPERATION REQUINMENTS
-------------------------
+
 ## 1.  List all restaurants that are open at a certain datetime  
     API CALL => get http://127.0.0.1:8000/api/restaurants?time=1615841024 
 
