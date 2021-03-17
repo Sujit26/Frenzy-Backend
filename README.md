@@ -1,10 +1,10 @@
 # Frenzy-Backend
 
 
-Command to Run
-git clone https://github.com/Sujit26/Frenzy-Backend/
-cd Frenzy-Backend
-make djrun
+### Command to Run
+git clone git@github.com:Sujit26/Frenzy-Backend.git   
+cd Frenzy-Backend   
+make djrun   
 
 
 OPERATION REQUINMENTS
