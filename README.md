@@ -1,5 +1,12 @@
 # Frenzy-Backend
 
+
+Command to Run
+git clone https://github.com/Sujit26/Frenzy-Backend/
+cd Frenzy-Backend
+make djrun
+
+
 OPERATION REQUINMENTS
 
 ## 1.  List all restaurants that are open at a certain datetime  
