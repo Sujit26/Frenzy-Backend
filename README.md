@@ -1,7 +1,7 @@
 # Frenzy-Backend
 
 OPERATION REQUINMENTS
-
+------------------------
 ## 1.  List all restaurants that are open at a certain datetime  
     API CALL => get http://127.0.0.1:8000/api/restaurants?time=1615841024 
 
@@ -9,7 +9,7 @@ OPERATION REQUINMENTS
 
 ```json 
 output :
-    [
+[
     {
         "cash_balance": 1000.0,
         "name": "Tummy",
@@ -68,7 +68,7 @@ Response:
 ## 3.  List all restaurants that have more or less than x number of dishes within a price range
     API CALL => get http://127.0.0.1:8000/api/restaurants?min_price=12&mode=gte&nod=1
 
-        nod:        number of dises
+        nod:        number of dishes
         min_price:  minimum price
         max_price:  maximum price
         mode: 
@@ -118,10 +118,28 @@ Output:
 ```
 -------------------------------------------------------------------------------------------------
 ## 4.  Search for restaurants or dishes by name, ranked by relevance to search term
-    API CALL => get http://127.0.0.1:8000/api/restaurants?name=tummy  
+    API CALL => get http://127.0.0.1:8000/api/restaurants?name=yumm  
     name:   name of restaurant 
 
     return list of restaurants after full text search on resutaurant names
+```json
+Response: 
+[
+    {
+        "cash_balance": 1000.0,
+        "name": "Yummy",
+        "menu": [
+            {
+                "name": "Burger",
+                "price": 11.0
+            }
+        ],
+        "opening_time": []
+    }
+]
+```
+    
+    
 -------------------------------------------------------------------------------------------------
 ## 5.  The top x users by total transaction amount within a date range
     API CALL => get http://localhost:8000/api/top-x-user?min_date=1615841024&max_date=1615841024&value=10
@@ -133,7 +151,7 @@ Output:
                     - lte: less then or equal to
                     - gte: greater then or equal to 
 ```json
-Output: 
+Response: 
 [
     {
         "cash_balance": 1000.0,
@@ -254,28 +272,53 @@ Response:
 ```
 
 
-
-
-
-
 -------------------------------------------------------------------------------------------------
+OPERATION REQUINMENTS
+# Models
+## Restaurant
+- id
+- name
+- cash_balance
 
-Assumption
+## FoodItem
+- id
+- name
+- price
+- restaurant
 
-- If any restaurant opens more or less than X hours then we consider in Requinment number 2. It is not nesessary to open more or less then X hours daily.
+## OpenningTime
+- weekday
+- from_hour
+- to_hour
+- restaurant
 
-- We create full text search for restaurant & dishes.
-
-User
-
+## User
 - name
 - id
 - cash_balance
 
-Transaction
+## Transaction
 
 - user_id (f_key to User)
 - dish_name
 - restaurant_name
 - transaction_amount
 - transaction_date
+
+
+## WEEKDAYS 
+[
+    (0, "Monday"),
+    (1, "Tuesday"),
+    (2, "Wednesday"),
+    (3, "Thursday"),
+    (4, "Friday"),
+    (5, "Saturday"),
+    (6, "Sunday"),
+]
+
+--------------------------------------------------------------------------------------------------------------------------
+Assumption
+
+- If any restaurant opens more or less than X hours then we consider in Requinment number 2. It is not nesessary to open more or less then X hours daily.
+- We create full text search for restaurant & dishes.
