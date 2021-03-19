@@ -1,5 +1,6 @@
 # Frenzy-Backend
 
+User Django for API Developement also create customized filters in django  
 
 ### Command to Run
 git clone git@github.com:Sujit26/Frenzy-Backend.git   
